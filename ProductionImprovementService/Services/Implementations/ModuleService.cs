@@ -36,6 +36,14 @@ namespace ProductionImprovementService.Services.Implementations
             return new OperationSuccessDTO<List<Module>> { Message = "Success", Result = modules };
         }
 
+        public OperationSuccessDTO<Module> DeleteModule(string name)
+        {
+            var module = context.Module.Where(m => m.Name == name).FirstOrDefault();
+            context.Module.Remove(module);
+            context.SaveChanges();
+            return new OperationSuccessDTO<Module> { Message = "Success" };
+        }
+
         public OperationSuccessDTO<Module> UpdateModule(Module module)
         {
             var mod = context.Module.Where(m => m.Name == module.Name).FirstOrDefault();

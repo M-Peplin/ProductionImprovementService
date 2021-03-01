@@ -14,6 +14,6 @@ namespace ProductionImprovementService.Services.Interfaces
         OperationSuccessDTO<List<Module>> GetModules();
         OperationSuccessDTO<Module> AddModule(Module module);
         OperationSuccessDTO<Module> UpdateModule(Module module);
-        OperationSuccessDTO<Module> DeleteModule(Module module);
+        OperationSuccessDTO<Module> DeleteModule(string name);
     }
 }

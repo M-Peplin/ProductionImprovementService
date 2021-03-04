@@ -7,7 +7,7 @@ using ProductionImprovementService.ModelsDTO;
 
 namespace ProductionImprovementService.Services.Interfaces
 {
-    interface ICalculatorCostService
+    public interface ICalculatorCostService
     {
         OperationResultDTO CalculateCost(string cityName, ModuleListDTO moduleListDTO);
     }

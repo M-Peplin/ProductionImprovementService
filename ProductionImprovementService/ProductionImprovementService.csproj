@@ -148,10 +148,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Implementations\CityService.cs" />
     <Compile Include="Services\Implementations\ModuleService.cs" />
+    <Compile Include="Services\Implementations\SearchHistoryService.cs" />
     <Compile Include="Services\Interfaces\ICalculatorCostService.cs" />
     <Compile Include="Services\Interfaces\ICityService.cs" />
     <Compile Include="Services\Interfaces\IModuleService.cs" />
-    <Compile Include="Services\Interfaces\ISerachHistoryService.cs" />
+    <Compile Include="Services\Interfaces\ISearchHistoryService.cs" />
     <Compile Include="Services\Interfaces\IShowResultService.cs" />
   </ItemGroup>
   <ItemGroup>

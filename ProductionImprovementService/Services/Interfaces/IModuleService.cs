@@ -8,7 +8,7 @@ using ProductionImprovementService.ModelsDTO;
 
 namespace ProductionImprovementService.Services.Interfaces
 {
-    interface IModuleService
+    public interface IModuleService
     {
         Module GetModuleByName(string moduleName);
         OperationSuccessDTO<List<Module>> GetModules();

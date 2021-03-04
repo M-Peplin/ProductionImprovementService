@@ -8,7 +8,7 @@ using ProductionImprovementService.ModelsDTO;
 
 namespace ProductionImprovementService.Services.Interfaces
 {
-    interface ICityService
+    public interface ICityService
     {
         City GetCityByName(string cityname);
         OperationSuccessDTO<IList<City>> GetCities();

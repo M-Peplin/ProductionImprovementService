@@ -8,7 +8,7 @@ using ProductionImprovementService.ModelsDTO;
 
 namespace ProductionImprovementService.Services.Interfaces
 {
-    interface ISerachHistoryService
+    public interface ISearchHistoryService
     {
         ResultCostDTO GetSearchHistory(string cityName, ModuleListDTO moduleListDTO);
         OperationSuccessDTO<IList<SearchHistory>> GetSearchHistories();

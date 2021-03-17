@@ -11,6 +11,7 @@ using System.Web.Routing;
 using ProductionImprovementService.Services.Interfaces;
 using ProductionImprovementService.Services.Implementations;
 using SimpleInjector.Integration.WebApi;
+using ProductionImprovementService.App_Start;
 
 namespace ProductionImprovementService
 {
@@ -19,6 +20,7 @@ namespace ProductionImprovementService
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

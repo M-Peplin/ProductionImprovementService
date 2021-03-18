@@ -12,6 +12,7 @@ using ProductionImprovementService.Services.Interfaces;
 using ProductionImprovementService.Services.Implementations;
 using SimpleInjector.Integration.WebApi;
 using ProductionImprovementService.App_Start;
+using SimpleInjector.Lifestyles;
 
 namespace ProductionImprovementService
 {
@@ -26,6 +27,8 @@ namespace ProductionImprovementService
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var container = new Container();
+            container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+            container.Options.ResolveUnregisteredConcreteTypes = true;
             container.Register<CalculatorContext>(Lifestyle.Scoped);
             container.Register<ICityService, CityService>(Lifestyle.Scoped);
             container.Register<IModuleService, ModuleService>(Lifestyle.Scoped);

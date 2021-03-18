@@ -22,7 +22,8 @@ namespace ProductionImprovementService.Controllers
         [Route("SearchHistories/GetSearchHistory")]
         public IHttpActionResult GetSearchHistory()
         {
-            return Content(HttpStatusCode.OK, searchHistoryService.GetSearchHistories());
+            return Content<IList<SearchHistory>>
+                (HttpStatusCode.OK, searchHistoryService.GetSearchHistories().Result);
         }
         [HttpPost]
         [Route("SearchHistories/AddSearchHistory")]

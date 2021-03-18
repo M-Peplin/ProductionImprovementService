@@ -20,14 +20,13 @@ namespace ProductionImprovementService.Controllers
         }
 
         [HttpGet]
-        [Route("Modules/GetModules")]
+        [Route("Module/GetModules")]
         public IHttpActionResult GetModules()
         {
-            return Content(HttpStatusCode.OK, moduleService.GetModules());
+            return Content<IList<Module>>(HttpStatusCode.OK, moduleService.GetModules().Result);
         }
         [HttpGet]
-        [Route("Modules/GetModuleByName/{name}")]
-        [ResponseType(typeof(Module))]
+        [Route("Module/GetModule/{name}")]        
         public IHttpActionResult GetModuleByName(string name)
         {
             Module module = moduleService.GetModuleByName(name);
@@ -39,20 +38,19 @@ namespace ProductionImprovementService.Controllers
             return Content<Module>(HttpStatusCode.OK, module);
         }
         [HttpPut]
-        [Route("Modules/UpdateModule")]
+        [Route("Module/UpdateModule")]
         public IHttpActionResult UpdateModule(Module module)
         {
             var response = moduleService.UpdateModule(module);
 
             if(response.Message.Equals("Success"))
             {
-                return Content(HttpStatusCode.OK, response.Message);
+                return Content<string>(HttpStatusCode.OK, response.Message);
             }
             return Content(HttpStatusCode.BadRequest, response.Message);
         }
         [HttpPost]
-        [Route("Modules/AddModule")]
-        [ResponseType(typeof(void))]
+        [Route("Module/AddModule")]        
         public IHttpActionResult AddModule(Module module)
         {
             if(module == null)
@@ -62,13 +60,12 @@ namespace ProductionImprovementService.Controllers
             var response = moduleService.AddModule(module);
             if(response.Message.Equals("Success"))
             {
-                return Content(HttpStatusCode.OK, response.Message);
+                return Content<string>(HttpStatusCode.OK, response.Message);
             }
             return Content(HttpStatusCode.BadRequest, "Error");
         }
         [HttpDelete]
-        [Route("Modules/DeleteModule/{name}")]
-        [ResponseType(typeof(void))]
+        [Route("Module/DeleteModule/{name}")]        
         public IHttpActionResult DeleteModule(string name)
         {
             if(name == null)
@@ -78,7 +75,7 @@ namespace ProductionImprovementService.Controllers
             var response = moduleService.DeleteModule(name);
             if(response.Message.Equals("Success"))
             {
-                return Content(HttpStatusCode.OK, response.Message);
+                return Content<string>(HttpStatusCode.OK, response.Message);
             }
             return Content(HttpStatusCode.BadRequest, "Error");
         }
